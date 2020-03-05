@@ -429,7 +429,7 @@ class DatasetsGenerator():
 				# Different splits use different offsets for the edges that are taken for testing
 				offset = floor(len(edges) / self.number_splits * i)
 				# We take the fraction for the current relation
-				fraction_test = fraction_test_relations.get(rel, 0.0)
+				fraction_test = fraction_test_relations.get(str(rel), 0.0)
 				# We compute how many edges will be taken for testing
 				num_test = floor(len(edges) * fraction_test)
 				# We compute what will be the indices of the edges that will be taken for training and testing, using the offset
@@ -479,7 +479,7 @@ class DatasetsGenerator():
 				# Different splits use different offsets for the edges that are taken for testing
 				offset = floor(len(edges) / self.number_splits * i)
 				# We take the fraction for the current relation
-				fraction_test = fraction_test_relations.get(rel, 0.0)
+				fraction_test = fraction_test_relations.get(str(rel), 0.0)
 				# We compute how many edges will be taken for testing
 				num_test = floor(len(edges) * fraction_test)
 				# We compute what will be the indices of the edges that will be taken for training and testing, using the offset
@@ -835,7 +835,7 @@ def main():
 	print(OUTPUT_FOLDER)
 
 	PREDICATE = args.predicate
-	PREDICT = args.predict
+	PREDICT = int(args.predict)
 
 	# We read and preprocess the graph
 	if(INPUT_FILE.endswith("tsv")):
